@@ -1,0 +1,28 @@
+<ion-header no-border>
+  
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="finished()">
+        <ion-icon name="checkmark"></ion-icon>Fechar Pedido
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-searchbar (ionInput)="filterItems($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of list; let i = index">
+      <ion-thumbnail item-start>
+        <img src="{{item.imgUrl}}">
+      </ion-thumbnail>
+      <h2>{{item.title}}</h2>
+      <p>{{item.subtitle}}</p>
+      <p>R$ {{item.price}}</p>
+      <button ion-button icon-only clear item-end (click)="buyItem(i, item);">
+        <ion-icon name="{{ item.status === 0 ? 'add-circle' : 'remove-circle' }}"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

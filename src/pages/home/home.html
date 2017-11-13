@@ -1,17 +1,38 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Cardápio</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="card-background-page">
+
+  <ion-card (click)="listOptions(1)">
+    <img src="assets/imgs/menu-bebidas.png" />
+    <div class="card-title">Bebidas</div>
+    <div class="card-subtitle">60 opções diferentes</div>
+  </ion-card>
+
+  <ion-card (click)="listOptions(2)">
+    <img src="assets/imgs/menu-petiscos.png" />
+    <div class="card-title">Petiscos</div>
+    <div class="card-subtitle">60 opções diferentes</div>
+  </ion-card>
+
+  <ion-card (click)="listOptions(3)">
+    <img src="assets/imgs/menu-pratos.png" />
+    <div class="card-title">Pratos Principais</div>
+    <div class="card-subtitle">60 opções diferentes</div>
+  </ion-card>
+
+  <ion-card (click)="listOptions(4)">
+    <img src="assets/imgs/menu-sobremesas.png" />
+    <div class="card-title">Sobremesas</div>
+    <div class="card-subtitle">60 opções diferentes</div>
+  </ion-card>
+
 </ion-content>
