@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
+@IonicPage()
 @Component({
   selector: 'page-list-options',
   templateUrl: 'list-options.html',
@@ -63,7 +64,7 @@ export class ListOptionsPage {
   }
 
   getRandomPrice(): string {
-    return (Math.floor(Math.random() * 100) + 1) + ',' + (Math.floor(Math.random() * 9) + 1) + '0';
+    return (Math.floor(Math.random() * 100) + 1) + '.' + (Math.floor(Math.random() * 9) + 1) + '0';
   }
 
   getIdItem(): string {
@@ -105,15 +106,16 @@ export class ListOptionsPage {
 
   finished() {
     if (this.order && this.order.length) {
-      this.storage.set(this.optType.toString(), this.order);
-
-      let toast = this.toastCtrl.create({
-        message: 'Seu pedido já foi encaminhado e chegará em breve. Fique a vontade para fazer mais pedidos.',
-        duration: 4000
+      this.storage.set(this.getTypeTitle(this.optType), this.order)
+      .then(() => {
+        let toast = this.toastCtrl.create({
+          message: 'Seu pedido já foi encaminhado e chegará em breve. Fique a vontade para fazer mais pedidos.',
+          duration: 4000
+        });
+        toast.present();
+  
+        this.navCtrl.pop();
       });
-      toast.present();
-
-      this.navCtrl.pop();
 
     } else {
       let toast = this.toastCtrl.create({

@@ -7,16 +7,16 @@
     
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input type="email" [(ngModel)]="form.email"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="form.pass"></ion-input>
     </ion-item>
     
   </ion-list>
 
-  <button ion-button round large outline block color="secondary" (click)="login()">Entrar</button>
+  <button ion-button round large outline block (click)="login()">Entrar</button>
 
 </ion-content>

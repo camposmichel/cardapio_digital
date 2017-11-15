@@ -1,17 +1,9 @@
 <ion-header no-border>
 
   <ion-navbar>
-    <ion-title>Comanda</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="finished()">
-        <ion-icon name="checkmark"></ion-icon> Fechar Conta
-      </button>
-    </ion-buttons>
+    <ion-title>Andamento da Cozinha</ion-title>
   </ion-navbar>
 
-  <ion-toolbar>
-    <ion-title text-center>Total: R$ {{ total }}</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -23,8 +15,7 @@
         <img src="{{bebida.imgUrl}}">
       </ion-thumbnail>
       <h2>{{bebida.title}}</h2>
-      <p>{{bebida.subtitle}}</p>
-      <p>R$ {{bebida.price}}</p>
+      <progress-bar [progress]="80"></progress-bar>
     </ion-item>
   </ion-list>
 
@@ -35,11 +26,10 @@
         <img src="{{petisco.imgUrl}}">
       </ion-thumbnail>
       <h2>{{petisco.title}}</h2>
-      <p>{{petisco.subtitle}}</p>
-      <p>R$ {{petisco.price}}</p>
+      <progress-bar [progress]="100"></progress-bar>
     </ion-item>
   </ion-list>
-
+  
   <ion-list *ngIf="pratos">
     <ion-list-header>Pratos Principais</ion-list-header>
     <ion-item *ngFor="let prato of pratos">
@@ -47,11 +37,10 @@
         <img src="{{prato.imgUrl}}">
       </ion-thumbnail>
       <h2>{{prato.title}}</h2>
-      <p>{{prato.subtitle}}</p>
-      <p>R$ {{prato.price}}</p>
+      <progress-bar [progress]="10"></progress-bar>
     </ion-item>
   </ion-list>
-
+  
   <ion-list *ngIf="sobremesas">
     <ion-list-header>Sobremesas</ion-list-header>
     <ion-item *ngFor="let sobremesa of sobremesas">
@@ -59,8 +48,7 @@
         <img src="{{sobremesa.imgUrl}}">
       </ion-thumbnail>
       <h2>{{sobremesa.title}}</h2>
-      <p>{{sobremesa.subtitle}}</p>
-      <p>R$ {{sobremesa.price}}</p>
+      <progress-bar [progress]="0"></progress-bar>
     </ion-item>
   </ion-list>
 
